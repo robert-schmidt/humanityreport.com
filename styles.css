@@ -81,7 +81,20 @@ h1 {
 }
 .chart-container:active, .chart-container.dragging { cursor: grabbing; }
 
+.chart-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
 .chart-canvas {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: 100%;
 }
@@ -90,6 +103,7 @@ h1 {
     position: absolute;
     right: 6%;
     top: 8%;
+    z-index: 2;
     font-size: 9rem;
     font-weight: 200;
     color: rgba(255, 70, 70, 0.5);
@@ -251,39 +265,6 @@ button:hover {
     background: linear-gradient(135deg, #080a08 0%, #0a0d0a 100%);
 }
 .info-card.ai-section h3 { color: #77bb88; border-color: #152a20; }
-.info-card.feedback-loop {
-    border-color: #2a2515;
-    background: linear-gradient(135deg, #0a0908 0%, #0d0c0a 100%);
-}
-.info-card.feedback-loop h3 { color: #ccaa77; border-color: #2a2515; }
-.loop-chain {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 15px;
-    padding: 15px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 6px;
-}
-.loop-node {
-    background: rgba(204, 170, 119, 0.15);
-    border: 1px solid rgba(204, 170, 119, 0.3);
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 0.8rem;
-    color: #ccaa77;
-}
-.loop-arrow {
-    color: #666;
-    font-size: 1.2rem;
-}
-.loop-desc {
-    font-size: 0.85rem;
-    color: #909090;
-    line-height: 1.6;
-}
-
 .checkpoint {
     display: flex;
     align-items: flex-start;

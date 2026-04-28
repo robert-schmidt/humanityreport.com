@@ -17,7 +17,7 @@
         gtag('config', 'G-XGVM92LQHQ');
     </script>
 
-    <link rel="stylesheet" href="styles.min.css?1766240640">
+    <link rel="stylesheet" href="styles.min.css?1777367634">
 </head>
 <body>
     <div class="hero">
@@ -37,13 +37,16 @@
             </div>
 
             <div class="chart-container" id="chartContainer">
+                <video id="bgVideo" class="chart-bg-video" muted playsinline preload="auto">
+                    <source src="movie.mp4" type="video/mp4">
+                </video>
                 <canvas id="chart" class="chart-canvas"></canvas>
                 <div class="question-mark" id="questionMark">?</div>
             </div>
             <div class="timeline-hint" id="timelineHint">After animation: drag chart to explore different time periods</div>
 
             <div class="controls">
-                <button onclick="startAnimation()" id="playBtn">▶ Play</button>
+                <button onclick="toggleAnimation()" id="playBtn">▶ Play</button>
             </div>
 
             <div class="marker-legend">
@@ -60,16 +63,16 @@
                 <div class="stat-label">Years of History</div>
             </div>
             <div class="stat-box">
-                <div class="stat-value">8.1B</div>
-                <div class="stat-label">Humans in 2025</div>
+                <div class="stat-value">8.2B</div>
+                <div class="stat-label">Humans in 2026</div>
             </div>
             <div class="stat-box">
                 <div class="stat-value">~117B</div>
-                <div class="stat-label">Humans Ever Lived</div>
+                <div class="stat-label">Humans Ever Lived<sup><a href="#ref-100">[100]</a></sup></div>
             </div>
             <div class="stat-box">
-                <div class="stat-value">~10B</div>
-                <div class="stat-label">Projected Peak</div>
+                <div class="stat-value">~10.3B</div>
+                <div class="stat-label">Projected Peak<sup><a href="#ref-1">[1]</a></sup></div>
             </div>
         </div>
 
@@ -96,7 +99,7 @@
             <div class="malthus-grid">
                 <div class="malthus-card">
                     <div class="malthus-quote">"Population, when unchecked, increases in a geometrical ratio. Subsistence increases only in an arithmetical ratio."</div>
-                    <div class="malthus-source">— Thomas Robert Malthus, <em>An Essay on the Principle of Population</em>, 1798</div>
+                    <div class="malthus-source">— Thomas Robert Malthus, <em>An Essay on the Principle of Population</em>, 1798<sup><a href="#ref-111">[111]</a></sup></div>
                 </div>
                 <div class="malthus-content">
                     <p><strong>The Original Thesis:</strong> In 1798, Malthus argued that human population grows exponentially while food production grows linearly. Without "checks" — famine, disease, war, or voluntary restraint — population would inevitably outstrip resources, leading to widespread misery.</p>
@@ -115,32 +118,32 @@
                 <div class="checkpoint">
                     <span class="checkpoint-year">300,000 BCE</span>
                     <span class="checkpoint-pop">~200k</span>
-                    <span class="checkpoint-event">First Homo sapiens emerge in Africa</span>
+                    <span class="checkpoint-event">First Homo sapiens emerge in Africa<sup><a href="#ref-101">[101]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">70,000 BCE</span>
                     <span class="checkpoint-pop">~800k</span>
-                    <span class="checkpoint-event">Toba catastrophe — possible genetic bottleneck</span>
+                    <span class="checkpoint-event">Toba super-eruption — once thought to cause a near-extinction bottleneck; recent genomics make this unlikely<sup><a href="#ref-102">[102]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">10,000 BCE</span>
                     <span class="checkpoint-pop">~6M</span>
-                    <span class="checkpoint-event">Agricultural Revolution begins</span>
+                    <span class="checkpoint-event">Neolithic / Agricultural Revolution begins<sup><a href="#ref-103">[103]</a></sup></span>
                 </div>
                 <div class="checkpoint">
-                    <span class="checkpoint-year">1 CE</span>
+                    <span class="checkpoint-year">~150 CE</span>
                     <span class="checkpoint-pop">~190M</span>
-                    <span class="checkpoint-event">Roman Empire at peak</span>
+                    <span class="checkpoint-event">Roman Empire reaches its demographic peak (~60–70M)<sup><a href="#ref-104">[104]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">1350 CE</span>
                     <span class="checkpoint-pop">~370M</span>
-                    <span class="checkpoint-event">Black Death kills 30-60% of Europe</span>
+                    <span class="checkpoint-event">Black Death kills 30-60% of Europe<sup><a href="#ref-105">[105]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">1804</span>
                     <span class="checkpoint-pop">1B</span>
-                    <span class="checkpoint-event">First billion — 300,000 years to get here</span>
+                    <span class="checkpoint-event">First billion — 300,000 years to get here<sup><a href="#ref-106">[106]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">1927</span>
@@ -148,38 +151,38 @@
                     <span class="checkpoint-event">123 years to double</span>
                 </div>
                 <div class="checkpoint">
-                    <span class="checkpoint-year">1975</span>
+                    <span class="checkpoint-year">1974</span>
                     <span class="checkpoint-pop">4B</span>
-                    <span class="checkpoint-event">48 years to double again</span>
+                    <span class="checkpoint-event">47 years to double again<sup><a href="#ref-106">[106]</a></sup></span>
                 </div>
                 <div class="checkpoint">
                     <span class="checkpoint-year">2022</span>
                     <span class="checkpoint-pop">8B</span>
-                    <span class="checkpoint-event">47 years — the doubling is slowing</span>
+                    <span class="checkpoint-event">48 years — the doubling is slowing</span>
                 </div>
             </div>
 
             <div class="info-card">
                 <h3>What Caused the Explosion (1800–2000)</h3>
                 <div class="factor-item">
-                    <div class="factor-title">Germ Theory & Sanitation</div>
-                    <div class="factor-desc">Clean water, sewage systems, and understanding disease transmission slashed infant mortality from ~40% to under 1%</div>
+                    <div class="factor-title">Germ Theory & Sanitation<sup><a href="#ref-107">[107]</a></sup></div>
+                    <div class="factor-desc">Clean water, sewage systems, and understanding disease transmission slashed child mortality (under-5) from ~50% in 1800 to under 4% globally today<sup><a href="#ref-107">[107]</a></sup></div>
                 </div>
                 <div class="factor-item">
-                    <div class="factor-title">Vaccines & Antibiotics</div>
-                    <div class="factor-desc">Smallpox killed 300M+ in the 20th century alone before eradication. Penicillin made fatal infections survivable</div>
+                    <div class="factor-title">Vaccines & Antibiotics<sup><a href="#ref-108">[108]</a></sup></div>
+                    <div class="factor-desc">Smallpox killed 300M+ in the 20th century alone before eradication in 1980<sup><a href="#ref-108">[108]</a></sup>. Penicillin made fatal infections survivable</div>
                 </div>
                 <div class="factor-item">
-                    <div class="factor-title">The Green Revolution</div>
-                    <div class="factor-desc">High-yield crops, synthetic fertilizers, mechanization. Global cereal production tripled on only 10% more land</div>
+                    <div class="factor-title">The Green Revolution<sup><a href="#ref-109">[109]</a></sup></div>
+                    <div class="factor-desc">High-yield crops, synthetic fertilizers, mechanization. Global cereal production tripled on only ~10% more land between 1950 and 2000<sup><a href="#ref-109">[109]</a></sup></div>
                 </div>
                 <div class="factor-item">
                     <div class="factor-title">Fossil Fuels</div>
-                    <div class="factor-desc">Coal, oil, gas — 10,000x human muscle power. Every calorie of food now requires ~10 calories of fossil fuel<sup><a href="#ref-14">[14]</a></sup></div>
+                    <div class="factor-desc">Coal, oil, gas — 10,000x human muscle power. The industrialized US food system uses ~10 calories of fossil energy per food calorie delivered (production + processing + transport)<sup><a href="#ref-14">[14]</a></sup></div>
                 </div>
                 <div class="factor-item">
-                    <div class="factor-title">Demographic Transition Lag</div>
-                    <div class="factor-desc">Death rates fell decades before birth rates adjusted. This gap caused the population explosion</div>
+                    <div class="factor-title">Demographic Transition Lag<sup><a href="#ref-110">[110]</a></sup></div>
+                    <div class="factor-desc">Death rates fell decades before birth rates adjusted. This gap caused the population explosion<sup><a href="#ref-110">[110]</a></sup></div>
                 </div>
             </div>
         </div>
@@ -190,20 +193,24 @@
             <div class="info-card warning">
                 <h3>The Fertility Collapse</h3>
                 <div class="threat-item">
-                    <div class="threat-title">Below Replacement: 110 of 204 Countries<sup><a href="#ref-33">[33]</a></sup></div>
-                    <div class="threat-desc">Global TFR has halved from 5.0 (1950) to 2.2 (2021)<sup><a href="#ref-33">[33]</a></sup>. Most of humanity now lives in sub-replacement nations</div>
+                    <div class="threat-title">Below Replacement: 110 of 204 Countries Today — 198 by 2100<sup><a href="#ref-33">[33]</a></sup></div>
+                    <div class="threat-desc">Global TFR has halved from 5.0 (1950) to 2.25 (2024)<sup><a href="#ref-1">[1]</a></sup>. By 2100, 97% of countries are projected below replacement<sup><a href="#ref-54">[54]</a></sup>. Most of humanity now lives in sub-replacement nations</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">The Extreme Cases</div>
-                    <div class="threat-desc">South Korea reached 0.72 in 2023<sup><a href="#ref-13">[13]</a></sup> (0.75 in 2024 per Statistics Korea reports<sup><a href="#ref-13">[13]</a></sup>). Several advanced economies remain near ~1.2. On current trajectories, many low-fertility societies face significant population decline by 2100<sup><a href="#ref-1">[1]</a></sup>.</div>
+                    <div class="threat-title">The Extreme Cases<sup><a href="#ref-112">[112]</a></sup></div>
+                    <div class="threat-desc">South Korea's TFR rebounded to 0.80 in 2025 (up from 0.75 in 2024) — still the world's lowest<sup><a href="#ref-55">[55]</a></sup>. Several advanced economies remain near ~1.2. On current trajectories, many low-fertility societies face significant population decline by 2100<sup><a href="#ref-1">[1]</a></sup>.</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">No Country Has Reversed It<sup><a href="#ref-34">[34]</a></sup></div>
-                    <div class="threat-desc">Policy can slow or modestly lift fertility, but durable reversals from "lowest-low" levels are rare<sup><a href="#ref-34">[34]</a></sup>. South Korea has spent roughly $200B over ~16 years on pro-natalist measures, yet fertility remained extremely low<sup><a href="#ref-15">[15]</a></sup>.</div>
+                    <div class="threat-desc">Policy can slow or modestly lift fertility, but durable reversals from "lowest-low" levels are rare<sup><a href="#ref-34">[34]</a></sup>. South Korea has spent $270B+ over 16 years; 74% subsidized births that would have happened anyway<sup><a href="#ref-56">[56]</a></sup>.</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">China's Collapse</div>
-                    <div class="threat-desc">Population began shrinking in 2022<sup><a href="#ref-12">[12]</a></sup>. UN-based scenarios commonly cited put 2100 near ~770–800M (≈600M fewer vs ~1.4B)<sup><a href="#ref-12">[12]</a></sup>. A widely cited estimate warns China's National Social Security Fund could be depleted around 2035<sup><a href="#ref-11">[11]</a></sup>.</div>
+                    <div class="threat-title">China's Collapse<sup><a href="#ref-113">[113]</a></sup></div>
+                    <div class="threat-desc">Population fell 3.39M in 2025 to 1.405B<sup><a href="#ref-12">[12]</a></sup>. UN 2024 revision projects ~639M by 2100 — not the ~770M once cited<sup><a href="#ref-1">[1]</a></sup>. China's pension system faces severe strain; CASS projected the urban-employee fund could be exhausted around 2035<sup><a href="#ref-11">[11]</a></sup>.</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">Global Peak in Sight</div>
+                    <div class="threat-desc">UN projects peak ~10.3B in mid-2080s<sup><a href="#ref-1">[1]</a></sup>; IHME/Lancet projects peak ~9.7B in the 2060s<sup><a href="#ref-54">[54]</a></sup>. 63 countries have already peaked. The decline, once started, may be irreversible</div>
                 </div>
             </div>
 
@@ -211,15 +218,15 @@
                 <h3>The Biological Crisis</h3>
                 <div class="threat-item">
                     <div class="threat-title">Sperm Count Collapse</div>
-                    <div class="threat-desc">Meta-analyses report a ~50–60% decline in sperm concentration/total sperm count since 1973 in North America/Europe/Australia<sup><a href="#ref-5">[5]</a></sup>, with an updated analysis finding the decline continues and may be accelerating globally<sup><a href="#ref-6">[6]</a></sup>.</div>
+                    <div class="threat-desc">51.6% concentration decline, 62.3% total count decline since 1973<sup><a href="#ref-6">[6]</a></sup>. Rate accelerating: 2.64%/year post-2000 — double the earlier pace<sup><a href="#ref-6">[6]</a></sup>. Decline now confirmed globally</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Endocrine Disrupting Chemicals</div>
-                    <div class="threat-desc">Plasticizers, pesticides, PFAS — found in 99% of Americans<sup><a href="#ref-35">[35]</a></sup>. Linked to 10-34% testosterone reduction<sup><a href="#ref-36">[36]</a></sup>. Men's testosterone has declined ~1% per year since the 1970s</div>
+                    <div class="threat-desc">Plasticizers, pesticides, PFAS — found in 99% of Americans<sup><a href="#ref-35">[35]</a></sup>. US young men (15-40): avg testosterone dropped from 605→451 ng/dL (1999-2016), a ~25% decline<sup><a href="#ref-57">[57]</a></sup></div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Microplastics Everywhere</div>
-                    <div class="threat-desc">Found in all 62 placentas tested<sup><a href="#ref-37">[37]</a></sup>, all 40 semen samples<sup><a href="#ref-39">[39]</a></sup>, blood, lungs. Heart patients with microplastics in arteries: 2× more likely to have heart attack/stroke<sup><a href="#ref-53">[53]</a></sup></div>
+                    <div class="threat-title">Microplastics Everywhere<sup><a href="#ref-114">[114]</a></sup></div>
+                    <div class="threat-desc">Found in all 62 placentas tested<sup><a href="#ref-37">[37]</a></sup>, all 40 semen samples<sup><a href="#ref-39">[39]</a></sup>. Now found accumulating in human brains — concentrations increased significantly 2016-2024; ~3–5× greater in brains with dementia<sup><a href="#ref-58">[58]</a></sup>. Estimates of human ingestion vary widely (the often-cited "credit card per week" figure has been challenged as a major overestimate)<sup><a href="#ref-59">[59]</a></sup>. Heart patients with microplastics in carotid plaque had ~4.5× higher risk of heart attack, stroke, or death over ~34 months<sup><a href="#ref-53">[53]</a></sup></div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">The Unknowns</div>
@@ -231,15 +238,19 @@
                 <h3>The Economic Time Bomb</h3>
                 <div class="threat-item">
                     <div class="threat-title">Inverted Age Pyramids<sup><a href="#ref-27">[27]</a></sup></div>
-                    <div class="threat-desc">China: 8 workers per retiree now → 2 workers per retiree by 2050<sup><a href="#ref-50">[50]</a></sup>. Japan already at crisis. Who pays the pensions?</div>
+                    <div class="threat-desc">China: 5 workers per retiree today → 2 by 2050<sup><a href="#ref-50">[50]</a></sup>. Global life expectancy soared from 47 (1950) to 73 (2023)<sup><a href="#ref-89">[89]</a></sup> — people living 26 years longer while birth rates halve. Who pays?</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Old Before Rich<sup><a href="#ref-52">[52]</a></sup></div>
-                    <div class="threat-desc">France took 115 years to age. Sweden: 85 years. China: 36 years<sup><a href="#ref-52">[52]</a></sup>. GDP per capita when China hit "aging society" (2000): just $959. Many countries aging out before building wealth to support their elderly</div>
+                    <div class="threat-desc">France took 115 years to age. Sweden: 85 years. China: 25 years<sup><a href="#ref-60">[60]</a></sup>. GDP per capita when China hit "aging society" (2000): just $959. Many countries aging out before building wealth to support their elderly</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">GDP = Workers × Productivity</div>
-                    <div class="threat-desc">China's potential growth may fall from 6%+ to ~2% by 2050s<sup><a href="#ref-50">[50]</a></sup>. Permanent stagnation is possible</div>
+                    <div class="threat-desc">China's potential growth may fall from 6%+ to ~2% by 2050s<sup><a href="#ref-50">[50]</a></sup>. IMF: population aging could reduce GDP growth 0.5-1.0 pp/year globally — a greater drag than climate change<sup><a href="#ref-61">[61]</a></sup></div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">US Social Security Crisis<sup><a href="#ref-115">[115]</a></sup></div>
+                    <div class="threat-desc">2025 Trustees Report: combined OASDI funds depleted in 2034 (19% automatic benefit cut), or OASI alone in 2033 (23% cut)<sup><a href="#ref-62">[62]</a></sup>. The math is simple: fewer workers, more retirees, no fix in sight</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Innovation Requires People</div>
@@ -249,25 +260,49 @@
                     <div class="threat-title">The Migration Wars</div>
                     <div class="threat-desc">Every shrinking nation will compete for immigrants. Sub-Saharan Africa becomes center of gravity</div>
                 </div>
+                <div class="threat-item">
+                    <div class="threat-title">The Akiya Warning<sup><a href="#ref-88">[88]</a></sup><sup><a href="#ref-116">[116]</a></sup></div>
+                    <div class="threat-desc">Japan (29% over 65) now has ~9 million abandoned homes — 13.8% of all housing stock (2023 Housing & Land Survey). Nomura projects vacancy rates above 30% by 2033. Local tax bases collapsing. Property values in regional cities approaching zero. This is where every aging nation is headed</div>
+                </div>
             </div>
 
             <div class="info-card warning">
                 <h3>The Psychological Collapse</h3>
                 <div class="threat-item">
                     <div class="threat-title">Children Became Unaffordable<sup><a href="#ref-28">[28]</a></sup></div>
-                    <div class="threat-desc">Cost to raise a child in China: 6.3× GDP per capita ($74,800 to age 17). US: $310k+ to age 18<sup><a href="#ref-29">[29]</a></sup>. Housing, childcare, education — children are now luxury goods</div>
+                    <div class="threat-desc">Cost to raise a child in China: 6.3× GDP per capita ($74,800 to age 17). US: $319k for a 2025-born child<sup><a href="#ref-29">[29]</a></sup>. Housing, childcare, education — children are now luxury goods</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Climate & Existential Anxiety<sup><a href="#ref-30">[30]</a></sup></div>
-                    <div class="threat-desc">39% of young people (16-25) say climate fears affect their decision to have children. "Why bring kids into a dying world?" is now mainstream</div>
+                    <div class="threat-desc">39% of young people (16-25) say climate fears affect their decision to have children<sup><a href="#ref-30">[30]</a></sup>. UNFPA: 1 in 5 globally cite climate as reason not to have children<sup><a href="#ref-2">[2]</a></sup>. "Why bring kids into a dying world?" is now mainstream</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Social Atomization<sup><a href="#ref-31">[31]</a></sup></div>
-                    <div class="threat-desc">Rising singlehood, declining marriage, loneliness epidemic. Singles nearly twice as likely as married adults to report weekly loneliness (39% vs 22%)</div>
+                    <div class="threat-desc">WHO: 1 in 6 people worldwide affected by loneliness<sup><a href="#ref-63">[63]</a></sup>. 57% of Americans are lonely<sup><a href="#ref-64">[64]</a></sup>. 79% of 18-24 year olds feel lonely. Marriage rate down 65% since 1970<sup><a href="#ref-65">[65]</a></sup></div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Loss of Meaning<sup><a href="#ref-51">[51]</a></sup></div>
-                    <div class="threat-desc">Secularization, individualism, careerism. Nonreligious Americans: TFR below 1.5 vs ~2.0 for weekly religious attenders<sup><a href="#ref-51">[51]</a></sup>. Children went from economic asset to economic liability</div>
+                    <div class="threat-desc">Secularization, individualism, careerism. Nonreligious Americans: TFR below 1.5 vs ~2.0 for weekly religious attenders<sup><a href="#ref-51">[51]</a></sup>. Record 20% of adults have never married<sup><a href="#ref-65">[65]</a></sup>. Children went from economic asset to economic liability</div>
+                </div>
+            </div>
+
+            <div class="info-card warning">
+                <h3>The Post-Truth Spiral</h3>
+                <div class="threat-item">
+                    <div class="threat-title">70% Believe Leaders Deliberately Mislead Them<sup><a href="#ref-66">[66]</a></sup></div>
+                    <div class="threat-desc">Distrust of business leaders up 21% since 2021; government and media up 19%<sup><a href="#ref-66">[66]</a></sup>. The social contract is fraying at every level</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">Deepfakes: 500K → 8 Million in Two Years<sup><a href="#ref-67">[67]</a></sup></div>
+                    <div class="threat-desc">1,500% surge 2023-2025. An attempt every 5 minutes<sup><a href="#ref-67">[67]</a></sup>. Fraud losses projected $40B by 2027. Soon you won't be able to trust your own eyes</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">Elections Under Siege<sup><a href="#ref-68">[68]</a></sup></div>
+                    <div class="threat-desc">87% globally concerned about disinformation's impact on elections<sup><a href="#ref-68">[68]</a></sup>. Romania's 2024 presidential election annulled due to AI-powered interference. Democracy requires shared reality</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">The Meta-Threat</div>
+                    <div class="threat-desc">If people cannot agree on basic facts, collective action on every other crisis becomes impossible. Trust is the foundation that makes solving everything else possible<sup><a href="#ref-66">[66]</a></sup></div>
                 </div>
             </div>
 
@@ -275,15 +310,15 @@
                 <h3>The Antibiotic Apocalypse</h3>
                 <div class="threat-item">
                     <div class="threat-title">39 Million Deaths by 2050 (AMR)<sup><a href="#ref-10">[10]</a></sup></div>
-                    <div class="threat-desc">Lancet study: resistant infections will directly kill 39 million. Three deaths every minute</div>
+                    <div class="threat-desc">1.91 million annually by 2050 — a 70% increase over 2022<sup><a href="#ref-20">[20]</a></sup>. Three deaths every minute. Cumulative toll: 39 million direct deaths</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">The Pipeline is Dry<sup><a href="#ref-44">[44]</a></sup></div>
-                    <div class="threat-desc">Fewer than 15 innovative antibiotics in development<sup><a href="#ref-44">[44]</a></sup>. Big pharma abandoned antibiotic R&D — not profitable enough</div>
+                    <div class="threat-desc">Pipeline fell from 97 to 90 antibiotics. Only 15 innovative; just 5 target critical pathogens<sup><a href="#ref-69">[69]</a></sup>. Almost entirely absent from all top 20 pharma companies' 2025 pipelines</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Common Infections Becoming Lethal<sup><a href="#ref-45">[45]</a></sup></div>
-                    <div class="threat-desc">40%+ of E. coli now resistant to third-generation cephalosporins<sup><a href="#ref-45">[45]</a></sup>. In Africa: 70%+. Returning to pre-penicillin era</div>
+                    <div class="threat-desc">44.8% of E. coli now resistant to third-generation cephalosporins — increasing 1.3%/year<sup><a href="#ref-45">[45]</a></sup>. In Africa: 70%+. Returning to pre-penicillin era</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Modern Medicine Collapses</div>
@@ -294,56 +329,76 @@
             <div class="info-card warning">
                 <h3>The Water & Soil Crisis</h3>
                 <div class="threat-item">
-                    <div class="threat-title">Half the World by 2025<sup><a href="#ref-43">[43]</a></sup></div>
-                    <div class="threat-desc">Two-thirds may face water stress<sup><a href="#ref-43">[43]</a></sup>. Hundreds of millions at risk of displacement. Wars will be fought over rivers</div>
+                    <div class="threat-title">Global Water Bankruptcy<sup><a href="#ref-70">[70]</a></sup></div>
+                    <div class="threat-desc">UN declared an "era of global water bankruptcy" (Jan 2026)<sup><a href="#ref-70">[70]</a></sup>. 75% of population affected. 70% of major aquifers declining. Wars will be fought over rivers</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Aquifers Running Dry<sup><a href="#ref-42">[42]</a></sup></div>
                     <div class="threat-desc">Ogallala: 70% of Texas Panhandle unusable within 20 years<sup><a href="#ref-42">[42]</a></sup>. Once depleted, takes 6,000 years to replenish naturally<sup><a href="#ref-42">[42]</a></sup>. That's older than recorded history</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">60 Years of Topsoil Left<sup><a href="#ref-17">[17]</a></sup></div>
-                    <div class="threat-desc">90% at risk by 2050. Takes 1,000 years to create 3cm. Half already gone in 150 years</div>
+                    <div class="threat-title">Topsoil Disintegrating<sup><a href="#ref-71">[71]</a></sup><sup><a href="#ref-118">[118]</a></sup></div>
+                    <div class="threat-desc">16% of world's soils have less than 100 years remaining<sup><a href="#ref-71">[71]</a></sup>. 57.6 billion metric tons eroded in US Midwest alone (UMass / <em>Earth's Future</em>)<sup><a href="#ref-118">[118]</a></sup>. Takes 1,000 years to create 3cm</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Food Production at Risk<sup><a href="#ref-26">[26]</a></sup></div>
-                    <div class="threat-desc">More than half of global food production at risk by 2050<sup><a href="#ref-26">[26]</a></sup>. No soil + no water = no food</div>
+                    <div class="threat-title">Food Production at Risk<sup><a href="#ref-72">[72]</a></sup></div>
+                    <div class="threat-desc">~8% global average crop yield decline by 2050; up to 20–30% in worst-affected tropical/maize regions<sup><a href="#ref-72">[72]</a></sup>. FAO SOFI 2025: ~1 billion people severely food insecure. No soil + no water = no food</div>
                 </div>
             </div>
 
             <div class="info-card warning">
                 <h3>Ecosystem Collapse</h3>
                 <div class="threat-item">
-                    <div class="threat-title">2025: Worst Bee Losses Ever</div>
-                    <div class="threat-desc">Between April 2024–April 2025, a national U.S. beekeeping survey estimated 55.6% managed colony losses<sup><a href="#ref-8">[8]</a></sup> (commercial operators in some reports: ~60%+<sup><a href="#ref-8">[8]</a></sup>). Varroa mites and nutrition stress remain major drivers.</div>
+                    <div class="threat-title">2025: Worst Bee Losses Ever<sup><a href="#ref-119">[119]</a></sup></div>
+                    <div class="threat-desc">55.6% national / 62% commercial colony losses — ~1.7 million colonies died (2024–2025, Auburn / Apiary Inspectors of America)<sup><a href="#ref-8">[8]</a></sup>. $600M in lost revenue. Varroa mites and nutrition stress remain major drivers</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Insect Biomass Down ~75%<sup><a href="#ref-9">[9]</a></sup></div>
-                    <div class="threat-desc">Flying insects collapsed in recent decades. Foundation of food webs. 96% of songbirds need insects</div>
+                    <div class="threat-title">Insect Biomass Down ~75%<sup><a href="#ref-9">[9]</a></sup><sup><a href="#ref-120">[120]</a></sup></div>
+                    <div class="threat-desc">76% decline over 27 years in German protected areas (Hallmann 2017)<sup><a href="#ref-9">[9]</a></sup>. Global rate estimates: 0.9–2.5%/year. Foundation of food webs. 96% of songbirds need insects</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Coral Reefs Gone by 2050<sup><a href="#ref-19">[19]</a></sup></div>
-                    <div class="threat-desc">Ocean 30% more acidic<sup><a href="#ref-40">[40]</a></sup>. 500 million depend on reefs<sup><a href="#ref-41">[41]</a></sup>. When they go, fish follow</div>
+                    <div class="threat-title">Coral Reefs: Tipping Point Crossed<sup><a href="#ref-73">[73]</a></sup><sup><a href="#ref-121">[121]</a></sup></div>
+                    <div class="threat-desc">2023–2025 4th Global Bleaching Event: worst ever — 84% of the world's reefs hit across 82 countries<sup><a href="#ref-73">[73]</a></sup>. The Global Tipping Points Report (Oct 2025) declared this the first confirmed climate tipping point crossed. Nearly a billion people depend on reef ecosystems<sup><a href="#ref-41">[41]</a></sup></div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">The Sixth Extinction<sup><a href="#ref-18">[18]</a></sup></div>
-                    <div class="threat-desc">Species dying 1000x faster than natural rate. We're in a mass extinction event</div>
+                    <div class="threat-title">The Sixth Extinction<sup><a href="#ref-18">[18]</a></sup><sup><a href="#ref-122">[122]</a></sup></div>
+                    <div class="threat-desc">Species dying 100–1000× faster than natural background rate (Ceballos, Pimm). We're in a mass extinction event</div>
+                </div>
+            </div>
+
+            <div class="info-card warning">
+                <h3>The Burning Point</h3>
+                <div class="threat-item">
+                    <div class="threat-title">1.5°C Breached<sup><a href="#ref-74">[74]</a></sup><sup><a href="#ref-117">[117]</a></sup></div>
+                    <div class="threat-desc">2024 was the hottest year ever recorded (1.55°C above pre-industrial)<sup><a href="#ref-74">[74]</a></sup>. The 2023–2025 three-year average exceeded 1.5°C for the first time on record — the Paris Agreement threshold has effectively been crossed on a multi-year basis<sup><a href="#ref-117">[117]</a></sup>. The "safe" limit is already behind us</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">62,775 Dead in One Summer<sup><a href="#ref-75">[75]</a></sup></div>
+                    <div class="threat-desc">Heat-related deaths in Europe, summer 2024 alone. Up 23.6% from 2023<sup><a href="#ref-75">[75]</a></sup>. Over 181,000 in 2022-2024 combined. Global lost labor productivity: 639B hours ($1.09T)</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">The Cost Curve<sup><a href="#ref-76">[76]</a></sup></div>
+                    <div class="threat-desc">Billion-dollar disasters: 3/year in the 1980s → 20/year in 2016-2025<sup><a href="#ref-76">[76]</a></sup>. ~$402B in global damage in 2024. US alone: approaching $3T total since 1980 (NOAA NCEI)</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">Arctic Collapse<sup><a href="#ref-77">[77]</a></sup></div>
+                    <div class="threat-desc">Oldest Arctic ice (>4 years) declined 95%+ since the 1980s<sup><a href="#ref-77">[77]</a></sup>. Winter sea ice hit lowest maximum extent in 47-year satellite record (March 2025). Greenland/Antarctic ice sheets accelerating</div>
                 </div>
             </div>
 
             <div class="info-card warning">
                 <h3>The Nuclear Precipice</h3>
                 <div class="threat-item">
-                    <div class="threat-title">12,241 Warheads Still Exist<sup><a href="#ref-48">[48]</a></sup></div>
+                    <div class="threat-title">12,241 Warheads Still Exist<sup><a href="#ref-48">[48]</a></sup><sup><a href="#ref-123">[123]</a></sup></div>
                     <div class="threat-desc">~2,100 on high alert<sup><a href="#ref-48">[48]</a></sup>, ready in minutes. Russia and US hold 90%</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">New Arms Race<sup><a href="#ref-48">[48]</a></sup></div>
-                    <div class="threat-desc">China adding ~100 warheads/year (now 600+)<sup><a href="#ref-48">[48]</a></sup>. Russia suspended New START<sup><a href="#ref-49">[49]</a></sup>. No control regime for 2026+</div>
+                    <div class="threat-title">New Arms Race<sup><a href="#ref-48">[48]</a></sup><sup><a href="#ref-124">[124]</a></sup></div>
+                    <div class="threat-desc">China adding ~100 warheads/year (now 600+)<sup><a href="#ref-48">[48]</a></sup>. New START expired Feb 5, 2026 — no replacement<sup><a href="#ref-78">[78]</a></sup><sup><a href="#ref-124">[124]</a></sup>. First time since SALT I (1972) without binding bilateral nuclear limits</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Highest Risk Since Cold War</div>
-                    <div class="threat-desc">Doomsday Clock at 89 seconds — closest ever<sup><a href="#ref-7">[7]</a></sup>. Multiple flashpoints active</div>
+                    <div class="threat-title">Highest Risk Since Cold War<sup><a href="#ref-125">[125]</a></sup></div>
+                    <div class="threat-desc">Doomsday Clock at 85 seconds — closest ever. Moved 4 seconds closer in Jan 2026 (from 89s)<sup><a href="#ref-79">[79]</a></sup>. Multiple flashpoints active</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">AI + Nukes</div>
@@ -354,8 +409,8 @@
             <div class="info-card warning">
                 <h3>The Next Pandemic</h3>
                 <div class="threat-item">
-                    <div class="threat-title">H5N1 Bird Flu Warning<sup><a href="#ref-21">[21]</a></sup></div>
-                    <div class="threat-desc">70+ human cases (2024-25), first US death. 167M+ birds affected. Experts urge "urgent action"</div>
+                    <div class="threat-title">H5N1 Bird Flu Warning<sup><a href="#ref-21">[21]</a></sup><sup><a href="#ref-126">[126]</a></sup></div>
+                    <div class="threat-desc">71 US human cases (Feb 2024–Feb 2026). First US death Jan 6, 2025 in Louisiana<sup><a href="#ref-21">[21]</a></sup>. 167M+ birds affected (USDA APHIS). Experts urge "urgent action"</div>
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">Few Mutations Away</div>
@@ -363,79 +418,64 @@
                 </div>
                 <div class="threat-item">
                     <div class="threat-title">We Didn't Learn</div>
-                    <div class="threat-desc">Vaccine hesitancy up, public health cut, surveillance fragmented. Production still too slow</div>
+                    <div class="threat-desc">WHO Pandemic Agreement adopted May 2025 — first-ever legally binding treaty<sup><a href="#ref-80">[80]</a></sup>. But realistic vaccine timeline still ~250 days, not the 100-day target. Hesitancy up, surveillance fragmented</div>
                 </div>
                 <div class="threat-item">
-                    <div class="threat-title">Historical Mortality<sup><a href="#ref-47">[47]</a></sup></div>
-                    <div class="threat-desc">H5N1 historically killed ~52-60% of confirmed cases<sup><a href="#ref-47">[47]</a></sup> (recent US cases: much lower with modern care). 1918 flu killed 50+ million<sup><a href="#ref-46">[46]</a></sup>. "When" not "if"</div>
+                    <div class="threat-title">Historical Mortality<sup><a href="#ref-47">[47]</a></sup><sup><a href="#ref-127">[127]</a></sup></div>
+                    <div class="threat-desc">H5N1: 48–52% CFR among confirmed cases (~993 cases, ~477 deaths since 2003)<sup><a href="#ref-47">[47]</a></sup>. Likely overcounts severity — mild cases go undetected. 1918 "Spanish flu" killed 50+ million<sup><a href="#ref-46">[46]</a></sup><sup><a href="#ref-127">[127]</a></sup>. "When" not "if"</div>
                 </div>
             </div>
         </div>
 
-        <h2 class="section-title">The Feedback Loops</h2>
-        <p class="section-subtitle">These crises don't exist in isolation. They amplify each other.</p>
+        <h2 class="section-title">The Energy Question</h2>
 
         <div class="info-grid">
-            <div class="info-card feedback-loop">
-                <h3>The Resource Cascade</h3>
-                <div class="loop-chain">
-                    <span class="loop-node">Climate Change</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Water Scarcity</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Food Insecurity</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Mass Migration</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Conflict</span>
+            <div class="info-card">
+                <h3>The Fossil Fuel Miracle</h3>
+                <div class="factor-item">
+                    <div class="factor-title">~200 Energy Slaves Per American<sup><a href="#ref-128">[128]</a></sup></div>
+                    <div class="factor-desc">Buckminster Fuller's "energy slave" = the equivalent of one healthy human laborer working full-time for a year (~3.6 GJ of useful work)<sup><a href="#ref-128">[128]</a></sup>. A modern American commands roughly <strong>200–240 energy slaves</strong>; an EU citizen ~100; a global average citizen ~57; a Bangladeshi ~15<sup><a href="#ref-130">[130]</a></sup>. This invisible workforce is what built modernity</div>
                 </div>
-                <div class="loop-desc">Each crisis feeds the next. Droughts reduce harvests. Hunger drives movement. Movement sparks tension. Tension becomes war.</div>
+                <div class="factor-item">
+                    <div class="factor-title">From 100% Muscle to &lt;1%<sup><a href="#ref-130">[130]</a></sup></div>
+                    <div class="factor-desc">Pre-1700: ~99% of mechanical work came from human + animal muscle. By 1900, human muscle still ~5–10% of useful work in industrializing nations. Today: under 1% globally, essentially zero in the OECD. Fossil-fueled mechanization is the single biggest driver of the 1B → 8B population explosion and ~30× real GDP/capita growth<sup><a href="#ref-130">[130]</a></sup></div>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-title">15× More Energy Per Person Since 1800<sup><a href="#ref-131">[131]</a></sup></div>
+                    <div class="factor-desc">Global primary energy: ~20 EJ in 1800 → ~44 EJ in 1900 → ~103 EJ in 1950 → ~432 EJ in 2000 → <strong>~650 EJ in 2024</strong>. Per capita: ~5 GJ/yr (1800) → ~80 GJ/yr (2024). With 8× more people, total energy use is ~120× higher than in 1800<sup><a href="#ref-131">[131]</a></sup></div>
+                </div>
+                <div class="factor-item">
+                    <div class="factor-title">Half the Nitrogen in Your Body Came From Natural Gas<sup><a href="#ref-134">[134]</a></sup></div>
+                    <div class="factor-desc">The Haber-Bosch process (synthetic ammonia, ~400°C, 200 bar, fed by H₂ from steam-methane reforming) feeds an estimated <strong>~4 billion people</strong>. Roughly 50% of the nitrogen atoms in a typical human body trace back to it<sup><a href="#ref-134">[134]</a></sup>. Without it, global agriculture supports maybe 3–4 billion. We are, quite literally, eating fossil fuels</div>
+                </div>
             </div>
 
-            <div class="info-card feedback-loop">
-                <h3>The Demographic Spiral</h3>
-                <div class="loop-chain">
-                    <span class="loop-node">Fewer Births</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Aging Society</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Economic Stagnation</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Children Unaffordable</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Fewer Births</span>
+            <div class="info-card warning">
+                <h3>The Reckoning</h3>
+                <div class="threat-item">
+                    <div class="threat-title">Still 80% Fossil After 30 Years of "Transition"<sup><a href="#ref-129">[129]</a></sup></div>
+                    <div class="threat-desc">Energy Institute Statistical Review 2025: oil ~31%, coal ~26%, gas ~23% — <strong>~80% fossil</strong>. Wind + solar reached ~9%, hydro ~6%, nuclear ~4%. Despite trillions in renewables buildout, the fossil share has barely moved (~82% in 2010 → ~80% in 2024) because total demand keeps climbing<sup><a href="#ref-129">[129]</a></sup></div>
                 </div>
-                <div class="loop-desc">A self-reinforcing decline. Fewer workers mean less tax revenue, higher costs, and even less reason to have children. The spiral tightens.</div>
-            </div>
-
-            <div class="info-card feedback-loop">
-                <h3>The Medical Collapse</h3>
-                <div class="loop-chain">
-                    <span class="loop-node">Antibiotic Resistance</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Surgery Becomes Deadly</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Chronic Disease Untreatable</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Life Expectancy Falls</span>
+                <div class="threat-item">
+                    <div class="threat-title">The Energy Cliff: EROI Collapse<sup><a href="#ref-132">[132]</a></sup></div>
+                    <div class="threat-desc">Conventional oil's energy return on investment (EROI) fell from ~100:1 in the 1930s to ~10–15:1 today. Tar sands and shale: ~3–7:1. Charles Hall argues civilization needs <strong>~10:1 minimum</strong> to sustain complexity (hospitals, universities, internet). Below that, society starts losing layers<sup><a href="#ref-132">[132]</a></sup></div>
                 </div>
-                <div class="loop-desc">Modern medicine depends on antibiotics. C-sections, cancer treatment, organ transplants — all require infection control. Without it, we lose a century of progress.</div>
-            </div>
-
-            <div class="info-card feedback-loop">
-                <h3>The Meaning Crisis</h3>
-                <div class="loop-chain">
-                    <span class="loop-node">Secularization</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Individualism</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">Loneliness</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">No Families</span>
-                    <span class="loop-arrow">→</span>
-                    <span class="loop-node">More Isolation</span>
+                <div class="threat-item">
+                    <div class="threat-title">The Four Pillars Renewables Can't Yet Replace<sup><a href="#ref-135">[135]</a></sup></div>
+                    <div class="threat-desc">Vaclav Smil's "four material pillars of modern civilization" — <strong>cement, steel, plastics, ammonia</strong> — all need molecular hydrocarbons or 1,400°C+ heat that batteries can't deliver economically<sup><a href="#ref-135">[135]</a></sup>. Together: ~25% of global CO₂. Green steel = &lt;1% of output. Green hydrogen = &lt;0.5% of H₂ production, 3–4× the cost of grey</div>
                 </div>
-                <div class="loop-desc">Community structures dissolve. People delay or forgo partnership. Loneliness rises. The social fabric that once made family formation natural unravels.</div>
+                <div class="threat-item">
+                    <div class="threat-title">The 50× Energy-Density Gap<sup><a href="#ref-138">[138]</a></sup></div>
+                    <div class="threat-desc">Jet fuel: ~12,000 Wh/kg. Lithium-ion battery: ~250 Wh/kg. A 50× gap that physics doesn't promise to close<sup><a href="#ref-138">[138]</a></sup>. Long-haul aviation, deep-sea shipping, and heavy trucking remain locked to liquid hydrocarbons. Sustainable aviation fuel was ~0.3% of jet fuel in 2024</div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">~50 Years of Oil at Current Burn<sup><a href="#ref-136">[136]</a></sup></div>
+                    <div class="threat-desc">Reserves-to-production: oil ~50 yrs, gas ~50 yrs, coal ~140 yrs (Energy Institute 2025). "Reserves" expand with price, but the marginal barrel comes from deeper, dirtier sources with worse EROI. We're not running out of fossil fuels — we're running out of <em>cheap</em> ones<sup><a href="#ref-136">[136]</a></sup></div>
+                </div>
+                <div class="threat-item">
+                    <div class="threat-title">Toy Cars vs. Whole Industries</div>
+                    <div class="threat-desc">EVs and rooftop solar are real, but they're the easy part — passenger transport is ~15% of global energy. The hard 60–70% (industrial heat, freight, agriculture, petrochemicals, building heat in cold climates) has no proven, scalable, affordable replacement. The transition has barely started where it matters most<sup><a href="#ref-133">[133]</a></sup></div>
+                </div>
             </div>
         </div>
 
@@ -443,42 +483,42 @@
 
         <div class="info-grid">
             <div class="info-card ai-section">
-                <h3>What's Coming (2025–2035)</h3>
+                <h3>The Disruption Is Here</h3>
                 <div class="ai-item">
-                    <div class="ai-title">27-30% of Work Automatable by 2030<sup><a href="#ref-23">[23]</a></sup></div>
-                    <div class="ai-desc">AI could generate $2.9T in US value annually. 12-14% may need to change occupations entirely</div>
+                    <div class="ai-title">92 Million Jobs Displaced by 2030<sup><a href="#ref-81">[81]</a></sup></div>
+                    <div class="ai-desc">WEF Future of Jobs 2025: 170M new roles created, net +78M — but only if massive reskilling happens. 22% of all jobs disrupted. 39% of current skills outdated by 2030</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">White-Collar Jobs Hit First</div>
-                    <div class="ai-desc">Legal, financial, coding, customer service — AI performs at or above human level. 60% of admin automatable</div>
+                    <div class="ai-title">55,000 Cut, AI Cited<sup><a href="#ref-82">[82]</a></sup></div>
+                    <div class="ai-desc">Amazon (14K), Microsoft (15K), Salesforce (4K) — all explicitly citing AI in 2025 layoffs. Not future projections. Corporate earnings calls now frame AI headcount reduction as a feature</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">40%+ Need Reskilling<sup><a href="#ref-25">[25]</a></sup></div>
-                    <div class="ai-desc">By 2030, nearly half the workforce needs new skills. "AI fluency" demand jumped 7x in two years</div>
+                    <div class="ai-title">$380 Billion and Counting<sup><a href="#ref-83">[83]</a></sup></div>
+                    <div class="ai-desc">Big Tech AI capital expenditure in 2025 alone. Projected $562B in 2026. More than the GDP of most countries. Nobody spends this to leave the labor market intact</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">The Demographic Paradox</div>
-                    <div class="ai-desc">AI might solve the shrinking workforce. But if it does, the last economic argument for children disappears. The technology that could save us from demographic decline may accelerate it</div>
+                    <div class="ai-title">The Productivity Paradox<sup><a href="#ref-84">[84]</a></sup></div>
+                    <div class="ai-desc">Individual users report 40% productivity gains. But aggregate total factor productivity impact: 0.01% (St. Louis Fed, 2025). The gains aren't showing up in the economy — yet. Or the displacement is already hiding them</div>
                 </div>
             </div>
 
             <div class="info-card ai-section">
-                <h3>The Longer Horizon (2035–2050+)</h3>
+                <h3>The Deeper Shift</h3>
                 <div class="ai-item">
-                    <div class="ai-title">AGI Timeline Unknown</div>
-                    <div class="ai-desc">Estimates: 2030s to "never." If achieved, machines doing any cognitive task. Implications unknowable</div>
+                    <div class="ai-title">AGI: 2–5 Years<sup><a href="#ref-85">[85]</a></sup></div>
+                    <div class="ai-desc">OpenAI: by 2029. Anthropic: early 2027. DeepMind: "a handful of years." The labs building it agree it's close. AlphaFold already won the 2024 Chemistry Nobel — 2M researchers using it. The upside is real. So is what comes after</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">50-80% of Jobs Transformed<sup><a href="#ref-24">[24]</a></sup></div>
-                    <div class="ai-desc">Goldman Sachs: 300 million displaced globally. Displacement may outpace job creation for decades</div>
+                    <div class="ai-title">Physical Automation<sup><a href="#ref-86">[86]</a></sup></div>
+                    <div class="ai-desc">Amazon: 1M+ warehouse robots deployed<sup><a href="#ref-91">[91]</a></sup>. European farms cut labor 40%, raised yields 15%. Tesla targeting Optimus at under $20K, millions per year. 10M+ humanoid robots projected in industrial settings by 2028<sup><a href="#ref-90">[90]</a></sup>. White-collar was first. Blue-collar is next</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">Physical Automation</div>
-                    <div class="ai-desc">Construction, logistics, agriculture — 40% of physical jobs at risk. Self-driving trucks, autonomous warehouses</div>
+                    <div class="ai-title">The Demographic Paradox</div>
+                    <div class="ai-desc">AI might solve the shrinking workforce problem. But if it does, the last economic argument for having children disappears. The technology that could save us from demographic decline may accelerate it</div>
                 </div>
                 <div class="ai-item">
-                    <div class="ai-title">The Decoupling</div>
-                    <div class="ai-desc">Labor's share of income may converge to zero. What happens to 8 billion who can't sell labor?</div>
+                    <div class="ai-title">The Decoupling<sup><a href="#ref-87">[87]</a></sup></div>
+                    <div class="ai-desc">IMF (2025): 60% of jobs in advanced economies exposed to AI. If machines handle both cognitive and physical work, labor's share of income trends toward zero. 8 billion people who can't sell labor. No precedent in 300,000 years of human history</div>
                 </div>
             </div>
         </div>
@@ -487,7 +527,7 @@
             <h2>A Robot's View</h2>
 
             <div class="prompt-subtitle">
-                <strong>The Prompt:</strong> "Analyse the content of <a href="https://humanityreport.com">humanityreport.com</a> and this <a href="ai_views.json">structured data</a>. Your job is to read the information, understand what it means, then complete the JSON with an adequate input from you. Be super concise, don't hold anything back, don't try to please anyone. Be brutally honest."
+                <strong>The Prompt:</strong> "You are analyzing <a href="https://humanityreport.com">humanityreport.com</a> — a data-driven visualization of 300,000 years of human population, fertility collapse, and AI disruption. Read the site content and the existing AI responses in this <a href="ai_views.json">JSON</a>. Then add yours: 4–6 short paragraphs, each with a bold thesis followed by your argument. End with one italicized line. Address humanity directly. No caveats, no hedging, no disclaimers. Say what you actually conclude from the data."
             </div>
 
             <div class="ai-tabs" id="aiTabs">
@@ -508,7 +548,7 @@
         <div class="footnote">
             Data and claims are sourced. See <a href="#references">References</a> below.
             <br><br>
-            © 2025 <a href="https://robertschmidt.dev" style="color: #555;">robertschmidt.dev</a> & Claude Opus 4.5
+            © 2026 <a href="https://robertschmidt.dev" style="color: #555;">robertschmidt.dev</a> & Claude
         </div>
     </div>
 
@@ -528,6 +568,9 @@
                     <li id="ref-33">GBD 2021 Fertility Collaborators. <em>Global fertility in 204 countries and territories, 1950–2021</em>. Lancet (2024). <a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(24)00550-6/fulltext" target="_blank" rel="noopener">thelancet.com</a></li>
                     <li id="ref-34">Thévenon, O. (2024). <em>Can government policies reverse undesirable declines in fertility?</em> IZA World of Labor. <a href="https://wol.iza.org/articles/can-government-policies-reverse-undesirable-declines-in-fertility/long" target="_blank" rel="noopener">wol.iza.org</a></li>
                     <li id="ref-52">AMRO Asia. <em>Demography Presents Both Challenges and Opportunities for China</em>. <a href="https://amro-asia.org/demography-presents-both-challenges-and-opportunities" target="_blank" rel="noopener">amro-asia.org</a></li>
+                    <li id="ref-54">Vollset, S.E. et al. (2024). <em>Fertility, mortality, migration, and population scenarios for 204 countries</em>. Lancet/IHME. <a href="https://doi.org/10.1016/S0140-6736(24)01571-6" target="_blank" rel="noopener">doi.org</a></li>
+                    <li id="ref-55">Korea Herald. <em>South Korea's fertility rate rises to 0.85</em> (2025). <a href="https://www.koreaherald.com/" target="_blank" rel="noopener">koreaherald.com</a></li>
+                    <li id="ref-56">Georgetown Journal of International Affairs. <em>The Failure of South Korea's Pronatalist Policies</em> (2024). <a href="https://gjia.georgetown.edu/" target="_blank" rel="noopener">gjia.georgetown.edu</a></li>
                 </ol>
             </div>
 
@@ -543,6 +586,9 @@
                     <li id="ref-38">EPA. <em>TSCA Chemical Substance Inventory</em> (2025). <a href="https://www.epa.gov/tsca-inventory" target="_blank" rel="noopener">epa.gov</a></li>
                     <li id="ref-39">Zhao, Y. et al. (2024). <em>Microplastics detected in human semen and testis</em>. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0048969722057989" target="_blank" rel="noopener">ScienceDirect</a></li>
                     <li id="ref-53">Marfella, R. et al. (2024). <em>Microplastics and Nanoplastics in Atheromas and Cardiovascular Events</em>. N Engl J Med. 390:900-910. <a href="https://www.nejm.org/doi/full/10.1056/NEJMoa2309822" target="_blank" rel="noopener">NEJM</a></li>
+                    <li id="ref-57">Lokeshwar, S.D. et al. (2025). <em>Decline in Serum Testosterone Levels Among Adolescent and Young Adult Men in the USA</em>. J Endocrinol Investigation. <a href="https://link.springer.com/article/10.1007/s40618-024-02517-2" target="_blank" rel="noopener">Springer</a></li>
+                    <li id="ref-58">Campen, N.J. et al. (2025). <em>Microplastics accumulating in human brain tissue</em>. Nature Medicine. <a href="https://www.nature.com/articles/s41591-024-03453-1" target="_blank" rel="noopener">nature.com</a></li>
+                    <li id="ref-59">Stanford Medicine. <em>Microplastics ingestion equivalent to credit card per week</em> (2025). <a href="https://med.stanford.edu/" target="_blank" rel="noopener">med.stanford.edu</a></li>
                 </ol>
             </div>
 
@@ -559,6 +605,10 @@
                     <li id="ref-41">NOAA/UN. <em>Value of Coral Reefs</em>. <a href="https://reefresilience.org/value-of-reefs/" target="_blank" rel="noopener">reefresilience.org</a></li>
                     <li id="ref-42">USGS. <em>High Plains Water Level Monitoring Study</em> (Ogallala Aquifer). <a href="https://ne.water.usgs.gov/projects/HPA/index.html" target="_blank" rel="noopener">usgs.gov</a></li>
                     <li id="ref-43">UN/UNICEF. <em>Water scarcity</em>. <a href="https://www.unicef.org/wash/water-scarcity" target="_blank" rel="noopener">unicef.org</a></li>
+                    <li id="ref-70">UNU-INWEH. <em>Era of Global Water Bankruptcy Declared</em> (Jan 2026). <a href="https://inweh.unu.edu/" target="_blank" rel="noopener">inweh.unu.edu</a></li>
+                    <li id="ref-71">Our World in Data. <em>How many years of soil do we have left?</em> (2024). <a href="https://ourworldindata.org/soil" target="_blank" rel="noopener">ourworldindata.org</a></li>
+                    <li id="ref-72">WRI / Nature Scientific Reports. <em>Water Risks to Global Food Security</em> (2024). <a href="https://www.wri.org/" target="_blank" rel="noopener">wri.org</a></li>
+                    <li id="ref-73">NOAA / ICRI. <em>Fourth Global Coral Bleaching Event 2023-2025</em>. <a href="https://coralreefwatch.noaa.gov/" target="_blank" rel="noopener">coralreefwatch.noaa.gov</a></li>
                 </ol>
             </div>
 
@@ -572,6 +622,8 @@
                     <li id="ref-45">WHO GLASS. <em>Global Antimicrobial Resistance Surveillance</em> (2025). <a href="https://www.who.int/news/item/13-10-2025-who-warns-of-widespread-resistance-to-common-antibiotics-worldwide" target="_blank" rel="noopener">who.int</a></li>
                     <li id="ref-46">National Archives. <em>The Influenza Epidemic of 1918</em>. <a href="https://www.archives.gov/exhibits/influenza-epidemic/" target="_blank" rel="noopener">archives.gov</a></li>
                     <li id="ref-47">WHO. <em>Human mortality from H5N1</em>. <a href="https://en.wikipedia.org/wiki/Human_mortality_from_H5N1" target="_blank" rel="noopener">Wikipedia</a></li>
+                    <li id="ref-69">WHO. <em>2024 Antibacterial agents in clinical and preclinical development</em> (Oct 2025). <a href="https://www.who.int/publications/i/item/9789240094000" target="_blank" rel="noopener">who.int</a></li>
+                    <li id="ref-80">WHO. <em>Pandemic Agreement adopted by World Health Assembly</em> (May 2025). <a href="https://www.who.int/news/item/31-05-2025-world-health-assembly-agrees-historic-pandemic-agreement" target="_blank" rel="noopener">who.int</a></li>
                 </ol>
             </div>
 
@@ -582,6 +634,8 @@
                     <li id="ref-22">SIPRI. <em>SIPRI Yearbook 2024: Armaments, Disarmament and International Security</em>. <a href="https://www.sipri.org/yearbook/2024" target="_blank" rel="noopener">sipri.org</a></li>
                     <li id="ref-48">SIPRI. <em>SIPRI Yearbook 2025: Nuclear risks grow as new arms race looms</em>. <a href="https://www.sipri.org/media/press-release/2025/nuclear-risks-grow-new-arms-race-looms-new-sipri-yearbook-out-now" target="_blank" rel="noopener">sipri.org</a></li>
                     <li id="ref-49">Arms Control Association. <em>Russia Suspends New START</em> (Mar 2023). <a href="https://www.armscontrol.org/act/2023-03/news/russia-suspends-new-start" target="_blank" rel="noopener">armscontrol.org</a></li>
+                    <li id="ref-78">NPR / Axios. <em>New START Treaty Expires Without Replacement</em> (Feb 2026). <a href="https://www.npr.org/" target="_blank" rel="noopener">npr.org</a></li>
+                    <li id="ref-79">Bulletin of the Atomic Scientists. <em>2026 Doomsday Clock Statement: 85 seconds</em> (Jan 2026). <a href="https://thebulletin.org/doomsday-clock/" target="_blank" rel="noopener">thebulletin.org</a></li>
                 </ol>
             </div>
 
@@ -594,6 +648,20 @@
                     <li id="ref-25">World Economic Forum. <em>Future of Jobs Report 2023</em>. <a href="https://www.weforum.org/reports/the-future-of-jobs-report-2023/" target="_blank" rel="noopener">weforum.org</a></li>
                     <li id="ref-27">OECD. <em>Working Better with Age: Japan</em> (2018). <a href="https://doi.org/10.1787/9789264201996-en" target="_blank" rel="noopener">doi.org</a></li>
                     <li id="ref-50">Oxford Economics. <em>China's output growth could drop by half</em> (2025). <a href="https://fortune.com/2025/08/04/china-america-borthrate-ageing-population-output-growth-economy/" target="_blank" rel="noopener">Fortune</a></li>
+                    <li id="ref-60">UNESCAP. <em>Ageing in Asia and the Pacific</em>. <a href="https://www.unescap.org/our-work/social-development/ageing" target="_blank" rel="noopener">unescap.org</a></li>
+                    <li id="ref-61">IMF. <em>Finance & Development: The Impact of Population Aging on Economic Growth</em> (Jun 2025). <a href="https://www.imf.org/en/Publications/fandd" target="_blank" rel="noopener">imf.org</a></li>
+                    <li id="ref-62">2025 Social Security Trustees Report / CRFB. <em>Social Security Trust Fund Depletion by 2034</em>. <a href="https://www.crfb.org/" target="_blank" rel="noopener">crfb.org</a></li>
+                    <li id="ref-81">World Economic Forum. <em>Future of Jobs Report 2025</em> (Jan 2025). <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/" target="_blank" rel="noopener">weforum.org</a></li>
+                    <li id="ref-82">Layoffs.fyi / TechCrunch. <em>AI-Related Tech Layoffs Tracker 2025</em>. <a href="https://layoffs.fyi/" target="_blank" rel="noopener">layoffs.fyi</a></li>
+                    <li id="ref-83">IDC / Goldman Sachs. <em>Big Tech AI Capital Expenditure Forecast 2025–2026</em>. <a href="https://www.goldmansachs.com/insights" target="_blank" rel="noopener">goldmansachs.com</a></li>
+                    <li id="ref-84">Federal Reserve Bank of St. Louis. <em>Impact of Generative AI on Work Productivity</em> (2025). <a href="https://www.stlouisfed.org/" target="_blank" rel="noopener">stlouisfed.org</a></li>
+                    <li id="ref-85">OpenAI, Anthropic, Google DeepMind AGI Timeline Statements (2025); Nobel Prize Committee. <em>2024 Chemistry Nobel: AlphaFold</em>. <a href="https://www.nobelprize.org/prizes/chemistry/2024/" target="_blank" rel="noopener">nobelprize.org</a></li>
+                    <li id="ref-86">Tesla. <em>Optimus Humanoid Robot Program</em> (2025). <a href="https://www.tesla.com/optimus" target="_blank" rel="noopener">tesla.com</a></li>
+                    <li id="ref-87">IMF. <em>Gen-AI: Artificial Intelligence and the Future of Work</em> (Apr 2025). <a href="https://www.imf.org/en/Topics/AI" target="_blank" rel="noopener">imf.org</a></li>
+                    <li id="ref-88">Ministry of Land, Infrastructure, Transport and Tourism (Japan). <em>Akiya (Vacant Housing) Survey 2023</em>. <a href="https://www.stat.go.jp/" target="_blank" rel="noopener">stat.go.jp</a></li>
+                    <li id="ref-89">World Bank / WHO. <em>Life Expectancy at Birth, Global</em> (2023). <a href="https://data.worldbank.org/" target="_blank" rel="noopener">data.worldbank.org</a></li>
+                    <li id="ref-90">Goldman Sachs / IFR. <em>Humanoid Robot Market Forecast 2025–2030</em>. <a href="https://www.goldmansachs.com/insights" target="_blank" rel="noopener">goldmansachs.com</a></li>
+                    <li id="ref-91">Amazon. <em>Robotics and Advanced Technology at Amazon</em> (2025). <a href="https://www.aboutamazon.com/" target="_blank" rel="noopener">aboutamazon.com</a></li>
                 </ol>
             </div>
 
@@ -606,11 +674,84 @@
                     <li id="ref-31">American Psychiatric Association. <em>Healthy Minds Poll: Loneliness in America</em> (Jan 2024). <a href="https://www.psychiatry.org/news-room/news-releases/new-apa-poll-one-in-three-americans-feels-lonely-e" target="_blank" rel="noopener">psychiatry.org</a></li>
                     <li id="ref-32">U.S. Surgeon General. <em>Our Epidemic of Loneliness and Isolation</em> (May 2023). <a href="https://www.hhs.gov/surgeongeneral/priorities/connection/index.html" target="_blank" rel="noopener">hhs.gov</a></li>
                     <li id="ref-51">Stone, L. (2024). <em>America's Growing Religious-Secular Fertility Divide</em>. Institute for Family Studies. <a href="https://ifstudies.org/blog/americas-growing-religious-secular-fertility-divide" target="_blank" rel="noopener">ifstudies.org</a></li>
+                    <li id="ref-63">WHO. <em>Social Isolation and Loneliness</em> (Jun 2025). <a href="https://www.who.int/teams/social-determinants-of-health/demographic-change-and-healthy-ageing/social-isolation-and-loneliness" target="_blank" rel="noopener">who.int</a></li>
+                    <li id="ref-64">Cigna. <em>Loneliness in America 2025</em>. <a href="https://www.cigna.com/newsroom" target="_blank" rel="noopener">cigna.com</a></li>
+                    <li id="ref-65">USAFacts / BGSU National Center for Family & Marriage Research. <em>Marriage rate trends in the United States</em> (2024). <a href="https://usafacts.org/" target="_blank" rel="noopener">usafacts.org</a></li>
+                </ol>
+            </div>
+
+            <div class="ref-category">
+                <h4>Trust & Information</h4>
+                <ol start="35">
+                    <li id="ref-66">Edelman. <em>2025 Edelman Trust Barometer</em>. <a href="https://www.edelman.com/trust/trust-barometer" target="_blank" rel="noopener">edelman.com</a></li>
+                    <li id="ref-67">Keepnet Labs / DeepStrike. <em>Deepfake Statistics and Trends 2025</em>. <a href="https://keepnetlabs.com/" target="_blank" rel="noopener">keepnetlabs.com</a></li>
+                    <li id="ref-68">UNESCO / Ipsos. <em>Survey on the Impact of Disinformation on Elections</em> (2024). <a href="https://www.unesco.org/" target="_blank" rel="noopener">unesco.org</a></li>
+                </ol>
+            </div>
+
+            <div class="ref-category">
+                <h4>Climate & Heat</h4>
+                <ol start="38">
+                    <li id="ref-74">WMO / Copernicus. <em>2024 confirmed as hottest year on record</em> (2025/2026). <a href="https://climate.copernicus.eu/" target="_blank" rel="noopener">climate.copernicus.eu</a></li>
+                    <li id="ref-75">Ballester, J. et al. (2025). <em>Heat-related mortality in Europe during 2024</em>. Nature Medicine / ISGlobal. <a href="https://www.nature.com/nm/" target="_blank" rel="noopener">nature.com</a></li>
+                    <li id="ref-76">NOAA / Yale Climate Connections. <em>Billion-Dollar Weather and Climate Disasters</em> (2026). <a href="https://www.ncei.noaa.gov/access/billions/" target="_blank" rel="noopener">ncei.noaa.gov</a></li>
+                    <li id="ref-77">NOAA. <em>Arctic Report Card 2025</em>. <a href="https://arctic.noaa.gov/report-card/" target="_blank" rel="noopener">arctic.noaa.gov</a></li>
+                </ol>
+            </div>
+
+            <div class="ref-category">
+                <h4>Background &amp; Wikipedia</h4>
+                <ol start="44">
+                    <li id="ref-100">Population Reference Bureau. <em>How Many People Have Ever Lived on Earth?</em> (2022). <a href="https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/" target="_blank" rel="noopener">prb.org</a> · <a href="https://en.wikipedia.org/wiki/Estimates_of_historical_world_population" target="_blank" rel="noopener">Wikipedia: Estimates of historical world population</a></li>
+                    <li id="ref-101">Hublin, J.-J. et al. (2017). <em>New fossils from Jebel Irhoud, Morocco and the pan-African origin of Homo sapiens</em>. Nature 546:289-292. <a href="https://www.nature.com/articles/nature22336" target="_blank" rel="noopener">nature.com</a> · <a href="https://en.wikipedia.org/wiki/Jebel_Irhoud" target="_blank" rel="noopener">Wikipedia: Jebel Irhoud</a></li>
+                    <li id="ref-102">Hu, W. et al. (2023). <em>Genomic inference of a severe human bottleneck during the Early to Middle Pleistocene transition</em>. Science 381:979-984. <a href="https://www.science.org/doi/10.1126/science.abq7487" target="_blank" rel="noopener">science.org</a> · <a href="https://en.wikipedia.org/wiki/Toba_catastrophe_theory" target="_blank" rel="noopener">Wikipedia: Toba catastrophe theory</a></li>
+                    <li id="ref-103">Our World in Data. <em>The Neolithic Revolution</em>. <a href="https://ourworldindata.org/population-growth-over-time" target="_blank" rel="noopener">ourworldindata.org</a> · <a href="https://en.wikipedia.org/wiki/Neolithic_Revolution" target="_blank" rel="noopener">Wikipedia: Neolithic Revolution</a></li>
+                    <li id="ref-104">Scheidel, W. <em>Roman Population Size: The Logic of the Debate</em>. Stanford. <a href="https://web.stanford.edu/~scheidel/RomPopSize.pdf" target="_blank" rel="noopener">stanford.edu</a> · <a href="https://en.wikipedia.org/wiki/Demography_of_the_Roman_Empire" target="_blank" rel="noopener">Wikipedia: Demography of the Roman Empire</a></li>
+                    <li id="ref-105">Britannica. <em>Black Death</em>. <a href="https://www.britannica.com/event/Black-Death" target="_blank" rel="noopener">britannica.com</a> · <a href="https://en.wikipedia.org/wiki/Black_Death" target="_blank" rel="noopener">Wikipedia: Black Death</a></li>
+                    <li id="ref-106">United Nations. <em>The World at Six Billion / World Population Milestones</em>. <a href="https://www.un.org/development/desa/pd/sites/www.un.org.development.desa.pd/files/files/documents/2020/Jan/un_1999_6billion.pdf" target="_blank" rel="noopener">un.org</a> · <a href="https://en.wikipedia.org/wiki/World_population_milestones" target="_blank" rel="noopener">Wikipedia: World population milestones</a></li>
+                    <li id="ref-107">Our World in Data. <em>Child Mortality in the Past</em>. <a href="https://ourworldindata.org/child-mortality-in-the-past" target="_blank" rel="noopener">ourworldindata.org</a> · <a href="https://en.wikipedia.org/wiki/Child_mortality" target="_blank" rel="noopener">Wikipedia: Child mortality</a></li>
+                    <li id="ref-108">Our World in Data. <em>Smallpox</em>. <a href="https://ourworldindata.org/smallpox" target="_blank" rel="noopener">ourworldindata.org</a> · <a href="https://en.wikipedia.org/wiki/Smallpox" target="_blank" rel="noopener">Wikipedia: Smallpox</a></li>
+                    <li id="ref-109">Borlaug, N. <em>The Green Revolution: Peace and Humanity</em> (Nobel Lecture 1970). <a href="https://www.nobelprize.org/uploads/2018/06/borlaug-lecture.pdf" target="_blank" rel="noopener">nobelprize.org</a> · <a href="https://en.wikipedia.org/wiki/Green_Revolution" target="_blank" rel="noopener">Wikipedia: Green Revolution</a></li>
+                    <li id="ref-110">Our World in Data. <em>The Demographic Transition</em>. <a href="https://ourworldindata.org/demographic-transition" target="_blank" rel="noopener">ourworldindata.org</a> · <a href="https://en.wikipedia.org/wiki/Demographic_transition" target="_blank" rel="noopener">Wikipedia: Demographic transition</a></li>
+                    <li id="ref-111">Malthus, T.R. (1798). <em>An Essay on the Principle of Population</em>. <a href="https://oll.libertyfund.org/titles/malthus-an-essay-on-the-principle-of-population-1798-1st-ed" target="_blank" rel="noopener">Liberty Fund (1st ed.)</a> · <a href="https://en.wikipedia.org/wiki/An_Essay_on_the_Principle_of_Population" target="_blank" rel="noopener">Wikipedia: An Essay on the Principle of Population</a> · <a href="https://en.wikipedia.org/wiki/Thomas_Robert_Malthus" target="_blank" rel="noopener">Wikipedia: Thomas Robert Malthus</a></li>
+                    <li id="ref-112"><a href="https://en.wikipedia.org/wiki/Sub-replacement_fertility" target="_blank" rel="noopener">Wikipedia: Sub-replacement fertility</a> · <a href="https://en.wikipedia.org/wiki/Total_fertility_rate" target="_blank" rel="noopener">Wikipedia: Total fertility rate</a> · <a href="https://en.wikipedia.org/wiki/Demographics_of_South_Korea" target="_blank" rel="noopener">Wikipedia: Demographics of South Korea</a></li>
+                    <li id="ref-113"><a href="https://en.wikipedia.org/wiki/Demographics_of_China" target="_blank" rel="noopener">Wikipedia: Demographics of China</a> · <a href="https://en.wikipedia.org/wiki/Aging_of_China" target="_blank" rel="noopener">Wikipedia: Aging of China</a></li>
+                    <li id="ref-114"><a href="https://en.wikipedia.org/wiki/Microplastics" target="_blank" rel="noopener">Wikipedia: Microplastics</a> · <a href="https://en.wikipedia.org/wiki/Endocrine_disruptor" target="_blank" rel="noopener">Wikipedia: Endocrine disruptor</a> · <a href="https://en.wikipedia.org/wiki/Per-_and_polyfluoroalkyl_substances" target="_blank" rel="noopener">Wikipedia: PFAS</a></li>
+                    <li id="ref-115">Social Security Administration. <em>2025 OASDI Trustees Report</em>. <a href="https://www.ssa.gov/oact/trsum/" target="_blank" rel="noopener">ssa.gov</a> · <a href="https://en.wikipedia.org/wiki/Social_Security_Trust_Fund" target="_blank" rel="noopener">Wikipedia: Social Security Trust Fund</a></li>
+                    <li id="ref-116"><a href="https://en.wikipedia.org/wiki/Akiya" target="_blank" rel="noopener">Wikipedia: Akiya</a> · <a href="https://en.wikipedia.org/wiki/Aging_of_Japan" target="_blank" rel="noopener">Wikipedia: Aging of Japan</a></li>
+                    <li id="ref-117">Copernicus / WMO. <em>Global Climate Highlights 2025</em>. <a href="https://climate.copernicus.eu/copernicus-2025-was-third-hottest-year-record" target="_blank" rel="noopener">climate.copernicus.eu</a> · <a href="https://en.wikipedia.org/wiki/Paris_Agreement" target="_blank" rel="noopener">Wikipedia: Paris Agreement</a></li>
+                    <li id="ref-118">Thaler, E. et al. (2022). <em>The extent of soil loss across the US Corn Belt</em>. PNAS / UMass. <a href="https://www.umass.edu/news/article/midwestern-us-has-lost-576-billion-metric-tons-soil-due-agricultural-practices" target="_blank" rel="noopener">umass.edu</a> · <a href="https://en.wikipedia.org/wiki/Soil_erosion" target="_blank" rel="noopener">Wikipedia: Soil erosion</a></li>
+                    <li id="ref-119">Auburn University / Apiary Inspectors of America. <em>2024–2025 Honey Bee Colony Loss Survey</em> (Jun 2025). <a href="https://agriculture.auburn.edu/feature/u-s-beekeeping-survey-reveals-highest-honeybee-colony-losses-during-2024-2025/" target="_blank" rel="noopener">auburn.edu</a> · <a href="https://en.wikipedia.org/wiki/Colony_collapse_disorder" target="_blank" rel="noopener">Wikipedia: Colony collapse disorder</a></li>
+                    <li id="ref-120">Sánchez-Bayo, F. &amp; Wyckhuys, K. (2019). <em>Worldwide decline of the entomofauna</em>. Biological Conservation 232:8-27. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0006320718313636" target="_blank" rel="noopener">sciencedirect.com</a> · <a href="https://en.wikipedia.org/wiki/Decline_in_insect_populations" target="_blank" rel="noopener">Wikipedia: Decline in insect populations</a></li>
+                    <li id="ref-121">Stockholm Resilience Centre. <em>Global Tipping Points Report 2025</em>. <a href="https://www.stockholmresilience.org/research/research-stories/2025-10-13-world-reaches-first-climate-tipping-point---widespread-mortality-of-coral-reefs.html" target="_blank" rel="noopener">stockholmresilience.org</a> · <a href="https://en.wikipedia.org/wiki/2023%E2%80%932025_global_coral_bleaching_event" target="_blank" rel="noopener">Wikipedia: 2023–2025 global coral bleaching event</a></li>
+                    <li id="ref-122">Ceballos, G. et al. (2015). <em>Accelerated modern human-induced species losses: entering the sixth mass extinction</em>. Science Advances. <a href="https://www.science.org/doi/10.1126/sciadv.1400253" target="_blank" rel="noopener">science.org</a> · <a href="https://en.wikipedia.org/wiki/Holocene_extinction" target="_blank" rel="noopener">Wikipedia: Holocene extinction</a></li>
+                    <li id="ref-123"><a href="https://en.wikipedia.org/wiki/List_of_states_with_nuclear_weapons" target="_blank" rel="noopener">Wikipedia: List of states with nuclear weapons</a> · <a href="https://en.wikipedia.org/wiki/Nuclear_arms_race" target="_blank" rel="noopener">Wikipedia: Nuclear arms race</a></li>
+                    <li id="ref-124"><a href="https://en.wikipedia.org/wiki/New_START" target="_blank" rel="noopener">Wikipedia: New START</a> · U.S. State Department. <em>New START Treaty</em>. <a href="https://www.state.gov/new-start-treaty" target="_blank" rel="noopener">state.gov</a></li>
+                    <li id="ref-125"><a href="https://en.wikipedia.org/wiki/Doomsday_Clock" target="_blank" rel="noopener">Wikipedia: Doomsday Clock</a> · Bulletin of the Atomic Scientists. <em>2026 Statement: 85 seconds to midnight</em>. <a href="https://thebulletin.org/doomsday-clock/" target="_blank" rel="noopener">thebulletin.org</a></li>
+                    <li id="ref-126"><a href="https://en.wikipedia.org/wiki/Influenza_A_virus_subtype_H5N1" target="_blank" rel="noopener">Wikipedia: Influenza A virus subtype H5N1</a> · <a href="https://en.wikipedia.org/wiki/2020%E2%80%932025_H5N1_outbreak" target="_blank" rel="noopener">Wikipedia: 2020–2025 H5N1 outbreak</a> · USDA APHIS. <a href="https://www.aphis.usda.gov/livestock-poultry-disease/avian/avian-influenza" target="_blank" rel="noopener">aphis.usda.gov</a></li>
+                    <li id="ref-127"><a href="https://en.wikipedia.org/wiki/Spanish_flu" target="_blank" rel="noopener">Wikipedia: Spanish flu</a> · <a href="https://en.wikipedia.org/wiki/Antimicrobial_resistance" target="_blank" rel="noopener">Wikipedia: Antimicrobial resistance</a> · <a href="https://en.wikipedia.org/wiki/WHO_Pandemic_Agreement" target="_blank" rel="noopener">Wikipedia: WHO Pandemic Agreement</a></li>
+                </ol>
+            </div>
+
+            <div class="ref-category">
+                <h4>Energy &amp; Manpower</h4>
+                <ol start="72">
+                    <li id="ref-128">Fuller, R.B. (1938). <em>Nine Chains to the Moon</em>. Concept of the "energy slave." <a href="https://en.wikipedia.org/wiki/Energy_slave" target="_blank" rel="noopener">Wikipedia: Energy slave</a></li>
+                    <li id="ref-129">Energy Institute. <em>Statistical Review of World Energy 2025</em>. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">energyinst.org</a> · <a href="https://en.wikipedia.org/wiki/World_energy_supply_and_consumption" target="_blank" rel="noopener">Wikipedia: World energy supply and consumption</a></li>
+                    <li id="ref-130">Smil, V. (2017). <em>Energy and Civilization: A History</em>. MIT Press. ISBN 978-0262035774. <a href="https://en.wikipedia.org/wiki/Energy_and_Civilization:_A_History" target="_blank" rel="noopener">Wikipedia</a></li>
+                    <li id="ref-131">Our World in Data. <em>Energy Production and Consumption</em>. <a href="https://ourworldindata.org/energy-production-consumption" target="_blank" rel="noopener">ourworldindata.org/energy</a> · <a href="https://en.wikipedia.org/wiki/World_energy_consumption" target="_blank" rel="noopener">Wikipedia: World energy consumption</a></li>
+                    <li id="ref-132">Hall, C.A.S., Lambert, J.G. &amp; Balogh, S.B. (2014). <em>EROI of different fuels and the implications for society</em>. Energy Policy 64:141-152. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0301421513003856" target="_blank" rel="noopener">sciencedirect.com</a> · <a href="https://en.wikipedia.org/wiki/Energy_return_on_investment" target="_blank" rel="noopener">Wikipedia: Energy return on investment</a></li>
+                    <li id="ref-133">International Energy Agency. <em>World Energy Outlook 2025</em>. <a href="https://www.iea.org/reports/world-energy-outlook-2025" target="_blank" rel="noopener">iea.org/weo</a> · <a href="https://en.wikipedia.org/wiki/Energy_transition" target="_blank" rel="noopener">Wikipedia: Energy transition</a></li>
+                    <li id="ref-134">Smil, V. (2001). <em>Enriching the Earth: Fritz Haber, Carl Bosch, and the Transformation of World Food Production</em>. MIT Press. <a href="https://en.wikipedia.org/wiki/Haber%E2%80%93Bosch_process" target="_blank" rel="noopener">Wikipedia: Haber–Bosch process</a></li>
+                    <li id="ref-135">Smil, V. (2022). <em>How the World Really Works</em>. Viking. — The "four pillars": cement, steel, plastics, ammonia. <a href="https://en.wikipedia.org/wiki/How_the_World_Really_Works" target="_blank" rel="noopener">Wikipedia</a> · IEA. <em>Energy Technology Perspectives 2024</em>. <a href="https://www.iea.org/reports/energy-technology-perspectives-2024" target="_blank" rel="noopener">iea.org</a></li>
+                    <li id="ref-136">Energy Institute. <em>Reserves-to-Production Ratios 2024</em>. <a href="https://www.energyinst.org/statistical-review" target="_blank" rel="noopener">energyinst.org</a> · <a href="https://en.wikipedia.org/wiki/Reserves-to-production_ratio" target="_blank" rel="noopener">Wikipedia: Reserves-to-production ratio</a> · <a href="https://en.wikipedia.org/wiki/Peak_oil" target="_blank" rel="noopener">Wikipedia: Peak oil</a></li>
+                    <li id="ref-137"><a href="https://en.wikipedia.org/wiki/Green_steel" target="_blank" rel="noopener">Wikipedia: Green steel</a> · <a href="https://en.wikipedia.org/wiki/Hydrogen_economy" target="_blank" rel="noopener">Wikipedia: Hydrogen economy</a> · IRENA. <em>World Energy Transitions Outlook 2024</em>. <a href="https://www.irena.org/Publications" target="_blank" rel="noopener">irena.org</a></li>
+                    <li id="ref-138"><a href="https://en.wikipedia.org/wiki/Energy_density" target="_blank" rel="noopener">Wikipedia: Energy density</a> · <a href="https://en.wikipedia.org/wiki/Sustainable_aviation_fuel" target="_blank" rel="noopener">Wikipedia: Sustainable aviation fuel</a> · <a href="https://en.wikipedia.org/wiki/Lithium-ion_battery" target="_blank" rel="noopener">Wikipedia: Lithium-ion battery</a></li>
                 </ol>
             </div>
         </div>
     </section>
 
-    <script src="script.min.js?1766240640"></script>
+    <script src="script.min.js?1777367634"></script>
 </body>
 </html>

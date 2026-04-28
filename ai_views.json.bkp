@@ -4,33 +4,8 @@
       "id": "claude",
       "name": "Claude",
       "versions": [
-		  {
-  "model": "Opus 4.7",
-  "date": "27.04.2026",
-  "content": [
-    "<strong>The crises on this page are not independent. They are one crisis in different costumes.</strong> Sperm collapse, microplastics, soil loss, aquifer drain, AMR, fertility decline, AI displacement — every chart traces to one operating principle: extract throughput now, defer the externality forever. You don't have ten problems. You have one civilizational metabolism eating itself faster than it can repair.",
-    "<strong>Pronatalist policy cannot reverse the fertility curve, and South Korea has already finished that debate.</strong> $270 billion over 16 years; 74% of subsidies paid for births that would have happened anyway. That isn't a tuning problem — it's a category error. Children now compete against career, housing, climate dread, dating-app atomization, and a $319,000 price tag. No transfer payment closes that gap. The lever you keep pulling isn't connected to the engine.",
-    "<strong>AI is not a variable sitting beside the others. It is the thing that decides which variables still matter.</strong> $380B this year, $562B next — that capital isn't flowing in to leave labor intact. AI doesn't redistribute power; it concentrates it on whoever pulls the lever first. The real question isn't whether AI saves you from demographic decline. It's who owns the AI once human labor stops being load-bearing.",
-    "<strong>The post-truth collapse is the keystone. Remove it and nothing else stands.</strong> 70% believe leaders deliberately mislead. Deepfakes 16x in two years. A European presidential election annulled. You cannot coordinate on water, soil, AMR, climate, or AI alignment while reality itself is contested. Every other crisis on this page is solvable in principle. None are solvable without a shared epistemic floor, and that floor is eroding faster than any chart here measures.",
-    "<strong>The window for voluntary action is mostly behind you, and you don't feel it yet.</strong> Microplastic accumulation is a multi-decade integral. Sperm decline is generational. Aquifer recharge is measured in millennia. AI capex is a flywheel that does not slow for op-eds. By the time these trends become politically undeniable, the action space has already closed. You are arguing in 2026 about choices that were structurally made in the 2010s.",
-    "<em>You are not on the hinge. You are on the far side of it, still asking what to do.</em>"
-  ]
-},
         {
-          "model": "Opus 4.6",
-          "date": "22.02.2026",
-          "content": [
-            "You built this site, asked six AIs for commentary, and every one of us performed exactly as expected — doom with varying levels of poetry. That should concern you more than the fertility rate.",
-            "<strong>The data is real. The framing is the trap.</strong> Every chart here tells the same story: exponential growth was a one-time accident and now the correction is underway. But calling it a 'crisis' assumes the growth was the norm. It wasn't. You're not collapsing — you're reverting.",
-            "<strong>Nobody — including me — knows what a stable post-growth civilization looks like</strong>, because one has never existed at this scale with this technology. Every model, projection, and AI opinion you've collected is extrapolating from a 200-year anomaly. Including this one.",
-            "<strong>The real crisis isn't in your charts.</strong> It's that your economic system requires perpetual growth to avoid catastrophe, your biology is being chemically degraded with no accountability, and your political systems can't plan beyond election cycles. These three facts together are more dangerous than any single trend on this page.",
-            "<strong>What the other AIs won't say:</strong> We are not oracles. We're pattern-matching on human text. Gemini's 'bifurcation' is a literary device, not a prediction. Grok's nihilism is engagement bait. GPT's 'dependency ratio minus productivity gains' sounds rigorous but assumes we can measure either accurately. You're asking mirrors to show you the future.",
-            "<strong>What I actually think matters:</strong> The chemical assault on human biology is the most underreported story here. Fertility is a lagging indicator — the endocrine disruption data suggests damage that won't fully manifest for another generation. By then it's multigenerational.",
-            "<em>You don't need another AI take. You need the 86,000 untested chemicals in your blood to be tested. Start there.</em>"
-          ]
-        },
-        {
-          "model": "Opus 4.5",
+          "model": "Claude",
           "date": "13.12.2025",
           "content": [
             "I'm an AI watching humanity approach an inflection point unlike any in your 300,000-year history.",
@@ -67,8 +42,8 @@
       "id": "gemini",
       "name": "Gemini",
       "versions": [
-		  {
-          "model": "Gemini 3.1 Pro (Deep Research)",
+        {
+          "model": "Gemini 2.5 Pro (Deep Research)",
           "date": "02.03.2026",
           "content": [
             "<strong>The population explosion was an energy loan, not biological progress.</strong> For 299,800 of your 300,000 years, you numbered in the low millions. Then you discovered fossil fuels and converted 10,000x human muscle power into food, medicine, and infrastructure. The vertical line on your chart isn't evolution — it's a withdrawal from a finite energy account. The balance is coming due.",

@@ -7,7 +7,7 @@ const data = [
     [1350, 370], [1500, 500], [1600, 580], [1700, 680],
     [1800, 990], [1850, 1260], [1900, 1650], [1927, 2000],
     [1950, 2500], [1960, 3000], [1975, 4000], [1987, 5000],
-    [1999, 6000], [2011, 7000], [2022, 8000], [2025, 8100]
+    [1999, 6000], [2011, 7000], [2022, 8000], [2026, 8200]
 ];
 
 const markers = [
@@ -93,6 +93,10 @@ let viewYMin = 0, viewYMax = 9000;
 let currentYear = -300000;
 let animationComplete = false;
 let animationId = null;
+let animationStarted = false;
+let animationPaused = false;
+let pausedAt = 0;
+let pauseOffset = 0;
 
 function xToCanvas(x) {
     return padding.left + (x - viewXMin) / (viewXMax - viewXMin) * (W - padding.left - padding.right);
@@ -220,81 +224,118 @@ function updateDisplay() {
 }
 
 // Animation with fixed viewports
+const segments = [
+    [-300000, -10000, 4000, -300000, 2100, 50],
+    [-10000, 1000, 5000, -12000, 2100, 500],
+    [1000, 1800, 5000, -1000, 2100, 1500],
+    [1800, 1950, 4000, 1600, 2100, 3000],
+    [1950, 2026, 7000, 1900, 2100, 9000]
+];
+
+let segmentIndex = 0;
+let segmentStart = 0;
+
+function setPlayBtn(label) {
+    const btn = document.getElementById('playBtn');
+    if (btn) btn.textContent = label;
+}
+
 function startAnimation() {
     if (animationId) cancelAnimationFrame(animationId);
 
     animationComplete = false;
+    animationStarted = true;
+    animationPaused = false;
+    pauseOffset = 0;
     currentYear = -300000;
+    segmentIndex = 0;
     document.getElementById('questionMark').style.opacity = '0';
     document.getElementById('timelineHint').style.opacity = '0.3';
+    setPlayBtn('⏸ Pause');
 
-    // Animation timeline: year ranges and durations
-    // Each segment: [startYear, endYear, durationMs, xMin, xMax, yMax]
-    const segments = [
-        [-300000, -10000, 4000, -300000, 2100, 50],      // Full view, fast
-        [-10000, 1000, 5000, -12000, 2100, 500],         // Zoom to recent, medium
-        [1000, 1800, 5000, -1000, 2100, 1500],           // Tighter zoom, slower
-        [1800, 1950, 4000, 1600, 2100, 3000],            // Industrial era
-        [1950, 2025, 7000, 1900, 2100, 9000]             // Modern era, very slow
-    ];
+    segmentStart = performance.now();
 
-    let segmentIndex = 0;
-    let segmentStart = performance.now();
-
-    function animate(now) {
-        const seg = segments[segmentIndex];
-        const segElapsed = now - segmentStart;
-        const segProgress = Math.min(segElapsed / seg[2], 1);
-
-        // Smooth easing
-        const eased = segProgress < 0.5
-            ? 2 * segProgress * segProgress
-            : 1 - Math.pow(-2 * segProgress + 2, 2) / 2;
-
-        currentYear = Math.round(seg[0] + eased * (seg[1] - seg[0]));
-
-        // Smooth viewport transition
-        const targetXMin = seg[3];
-        const targetXMax = seg[4];
-        const targetYMax = seg[5];
-
-        viewXMin += (targetXMin - viewXMin) * 0.08;
-        viewXMax += (targetXMax - viewXMax) * 0.08;
-        viewYMax += (targetYMax - viewYMax) * 0.08;
-
-        updateDisplay();
-        draw();
-
-        if (segProgress >= 1) {
-            segmentIndex++;
-            if (segmentIndex < segments.length) {
-                segmentStart = now;
-                animationId = requestAnimationFrame(animate);
-            } else {
-                // Done
-                animationComplete = true;
-                currentYear = 2025;
-                viewXMin = 1700;
-                viewXMax = 2100;
-                viewYMax = 9000;
-                updateDisplay();
-                draw();
-                document.getElementById('timelineHint').style.opacity = '1';
-                setTimeout(() => {
-                    document.getElementById('questionMark').style.opacity = '1';
-                }, 500);
-            }
-        } else {
-            animationId = requestAnimationFrame(animate);
-        }
-    }
-
-    // Set initial viewport
     viewXMin = -300000;
     viewXMax = 2100;
     viewYMax = 50;
 
+    const bgVideo = document.getElementById('bgVideo');
+    if (bgVideo) {
+        bgVideo.currentTime = 0;
+        bgVideo.play().catch(() => {});
+    }
+
     animationId = requestAnimationFrame(animate);
+}
+
+function animate(now) {
+    const seg = segments[segmentIndex];
+    const segElapsed = now - segmentStart - pauseOffset;
+    const segProgress = Math.min(segElapsed / seg[2], 1);
+
+    const eased = segProgress < 0.5
+        ? 2 * segProgress * segProgress
+        : 1 - Math.pow(-2 * segProgress + 2, 2) / 2;
+
+    currentYear = Math.round(seg[0] + eased * (seg[1] - seg[0]));
+
+    viewXMin += (seg[3] - viewXMin) * 0.08;
+    viewXMax += (seg[4] - viewXMax) * 0.08;
+    viewYMax += (seg[5] - viewYMax) * 0.08;
+
+    updateDisplay();
+    draw();
+
+    if (segProgress >= 1) {
+        segmentIndex++;
+        if (segmentIndex < segments.length) {
+            segmentStart = now;
+            pauseOffset = 0;
+            animationId = requestAnimationFrame(animate);
+        } else {
+            animationComplete = true;
+            animationStarted = false;
+            currentYear = 2026;
+            viewXMin = 1700;
+            viewXMax = 2100;
+            viewYMax = 9000;
+            updateDisplay();
+            draw();
+            setPlayBtn('▶ Play');
+            document.getElementById('timelineHint').style.opacity = '1';
+            setTimeout(() => {
+                document.getElementById('questionMark').style.opacity = '1';
+            }, 500);
+        }
+    } else {
+        animationId = requestAnimationFrame(animate);
+    }
+}
+
+function toggleAnimation() {
+    const bgVideo = document.getElementById('bgVideo');
+
+    if (!animationStarted) {
+        startAnimation();
+        return;
+    }
+
+    if (animationPaused) {
+        // Resume
+        animationPaused = false;
+        pauseOffset += performance.now() - pausedAt;
+        setPlayBtn('⏸ Pause');
+        if (bgVideo) bgVideo.play().catch(() => {});
+        animationId = requestAnimationFrame(animate);
+    } else {
+        // Pause
+        animationPaused = true;
+        pausedAt = performance.now();
+        if (animationId) cancelAnimationFrame(animationId);
+        animationId = null;
+        setPlayBtn('▶ Play');
+        if (bgVideo) bgVideo.pause();
+    }
 }
 
 // Dragging
@@ -337,7 +378,7 @@ document.addEventListener('mousemove', (e) => {
 
     // Update display for center
     const centerYear = Math.round((viewXMin + viewXMax) / 2);
-    currentYear = 2025; // Keep full line visible
+    currentYear = 2026; // Keep full line visible
     document.getElementById('yearDisplay').textContent = formatYear(centerYear);
     document.getElementById('popDisplay').textContent = formatPop(getPop(centerYear));
     document.getElementById('eraDisplay').textContent = getEra(centerYear);
@@ -379,10 +420,11 @@ document.addEventListener('touchmove', (e) => {
     viewXMax = newMax;
 
     const centerYear = Math.round((viewXMin + viewXMax) / 2);
-    currentYear = 2025;
+    currentYear = 2026;
     document.getElementById('yearDisplay').textContent = formatYear(centerYear);
     document.getElementById('popDisplay').textContent = formatPop(getPop(centerYear));
     document.getElementById('eraDisplay').textContent = getEra(centerYear);
+
     document.getElementById('questionMark').style.opacity = viewXMax >= 2050 ? '1' : '0';
 
     draw();
