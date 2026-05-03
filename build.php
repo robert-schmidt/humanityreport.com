@@ -69,30 +69,31 @@ $jsReduction = $originalJsSize > 0 ? round((($originalJsSize - $minifiedJsSize) 
 file_put_contents('script.min.js', $jsContent);
 echo "JavaScript minified: script.js -> script.min.js ({$jsReduction}% reduction)\n";
 
-// Update HTML with cache-busting timestamps
-$htmlContent = file_get_contents('index.html');
-if ($htmlContent === false) {
-    die("Error: Could not read index.html\n");
-}
-
+// Update HTML files with cache-busting timestamps
 $timestamp = time();
+$htmlFiles = ['index.html', 'manifesto.html'];
 
-// Update CSS link
-$htmlContent = preg_replace(
-    '/styles\.min\.css\?[0-9]+/',
-    "styles.min.css?$timestamp",
-    $htmlContent
-);
+foreach ($htmlFiles as $htmlFile) {
+    if (!file_exists($htmlFile)) continue;
+    $htmlContent = file_get_contents($htmlFile);
+    if ($htmlContent === false) {
+        die("Error: Could not read $htmlFile\n");
+    }
 
-// Update JS link
-$htmlContent = preg_replace(
-    '/script\.min\.js\?[0-9]+/',
-    "script.min.js?$timestamp",
-    $htmlContent
-);
+    $htmlContent = preg_replace(
+        '/styles\.min\.css\?[0-9]+/',
+        "styles.min.css?$timestamp",
+        $htmlContent
+    );
+    $htmlContent = preg_replace(
+        '/script\.min\.js\?[0-9]+/',
+        "script.min.js?$timestamp",
+        $htmlContent
+    );
 
-file_put_contents('index.html', $htmlContent);
-echo "Updated HTML with cache-busting timestamps\n";
+    file_put_contents($htmlFile, $htmlContent);
+    echo "Updated $htmlFile with cache-busting timestamps\n";
+}
 
 // Calculate total reduction
 $totalOriginalSize = $originalCssSize + $originalJsSize;

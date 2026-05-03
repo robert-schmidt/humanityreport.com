@@ -1,0 +1,11 @@
+# Defense-in-depth: even though signatures.json lives outside the doc root,
+# block any signature/rate-limit data files from being served if they ever
+# end up here by accident. ai_views.json (public) is unaffected.
+<FilesMatch "^(signatures|signrate)\.json$">
+    Require all denied
+</FilesMatch>
+
+# Block dotfiles (.signrate.json from older deploys, .git, .env, etc).
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>

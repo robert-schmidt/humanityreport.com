@@ -518,3 +518,61 @@ fetch('ai_views.json')
             '<p style="color: #885555;">Failed to load AI views data.</p>';
         console.error('Error loading ai_views.json:', err);
     });
+
+// === Scroll-reveal animations ===
+// Fade + slide up on first viewport entry. Targets sections from .stats-row down.
+// Bails on reduced-motion; bails on browsers without IntersectionObserver
+// (no class added, content stays visible).
+(function () {
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced || !('IntersectionObserver' in window)) return;
+
+    var blockSelectors = [
+        '.section-title',
+        '.malthus-section',
+        '.polycrisis-section',
+        '.polycrisis-footer',
+        '.robot-section',
+        '.energy-slaves-svg',
+        '.references .ref-category',
+        '.footnote'
+    ];
+
+    var itemGroups = [
+        { container: '.stats-row',       items: '.stat-box',         step: 0.06 },
+        { container: '.perspective-box', items: '.perspective-stat', step: 0.08 },
+        { container: '.info-grid',       items: '.info-card',        step: 0.09 },
+        { container: '.polycrisis-grid', items: '.loop-card',        step: 0.07 }
+    ];
+
+    var targets = [];
+
+    blockSelectors.forEach(function (sel) {
+        document.querySelectorAll(sel).forEach(function (el) {
+            el.classList.add('scroll-reveal');
+            targets.push(el);
+        });
+    });
+
+    itemGroups.forEach(function (group) {
+        document.querySelectorAll(group.container).forEach(function (container) {
+            var items = container.querySelectorAll(group.items);
+            items.forEach(function (item, i) {
+                item.classList.add('scroll-reveal');
+                item.style.transitionDelay = (i * group.step).toFixed(2) + 's';
+                targets.push(item);
+            });
+        });
+    });
+
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(function (t) { io.observe(t); });
+})();
